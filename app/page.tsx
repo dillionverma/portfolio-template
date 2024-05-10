@@ -185,7 +185,7 @@ export default function Component() {
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 Hi, I&apos;m John Doe 👋
               </h1>
-              <p className="max-w-[600px] md:text-xl">
+              <span className="max-w-[600px] md:text-xl">
                 I&apos;m a passionate software engineer with an interest in{" "}
                 <WordRotate
                   className="inline-flex w-full text-left font-bold leading-none tracking-tighter"
@@ -204,7 +204,7 @@ export default function Component() {
                     "JavaScript Libraries.",
                   ]}
                 />
-              </p>
+              </span>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
               <Link
