@@ -32,8 +32,8 @@ const contact = {
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/",
-      icon: (
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
           <title>LinkedIn</title>
           <path
             fill="currentColor"
@@ -45,8 +45,8 @@ const contact = {
     {
       name: "X",
       url: "https://x.com/",
-      icon: (
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      icon: (props: React.SVGProps<SVGSVGElement>) => (
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" {...props}>
           <title>X</title>
           <path
             fill="currentColor"
