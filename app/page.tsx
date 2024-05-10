@@ -3,11 +3,51 @@ import OrbitingCircles from "@/components/magicui/orbiting-circles";
 import TextReveal from "@/components/magicui/text-reveal";
 import WordRotate from "@/components/magicui/word-rotate";
 import { ProjectCard } from "@/components/project-card";
-import { buttonVariants } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
-import { ChevronRight, GlobeIcon } from "lucide-react";
+import {
+  ChevronRight,
+  GlobeIcon,
+  LinkedinIcon,
+  MailIcon,
+  PhoneIcon,
+  XIcon,
+  Youtube,
+} from "lucide-react";
 import Link from "next/link";
+
+const contact = {
+  email: "hello@example.com",
+  tel: "+123456789",
+  social: [
+    {
+      name: "GitHub",
+      url: "https://github.com/",
+      icon: GitHubLogoIcon,
+    },
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/",
+      icon: LinkedinIcon,
+    },
+    {
+      name: "X",
+      url: "https://x.com/",
+      icon: XIcon,
+    },
+    {
+      name: "Youtube",
+      url: "https://youtube.com/",
+      icon: Youtube,
+    },
+  ],
+};
 
 const projects = [
   {
@@ -182,6 +222,66 @@ export default function Component() {
                 Contact Me
                 <ChevronRight className="h-4 w-4 translate-x-0 transform transition-all duration-300 ease-out group-hover:translate-x-1" />
               </Link>
+            </div>
+            <div className="flex gap-x-1 pt-1 font-sans text-sm text-muted-foreground print:hidden">
+              {contact.email ? (
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Button
+                      className="size-8"
+                      variant="outline"
+                      size="icon"
+                      asChild
+                    >
+                      <a href={`mailto:${contact.email}`}>
+                        <MailIcon className="size-4" />
+                      </a>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Email</p>
+                  </TooltipContent>
+                </Tooltip>
+              ) : null}
+              {contact.tel ? (
+                <Tooltip>
+                  <TooltipTrigger>
+                    {" "}
+                    <Button
+                      className="size-8"
+                      variant="outline"
+                      size="icon"
+                      asChild
+                    >
+                      <a href={`tel:${contact.tel}`}>
+                        <PhoneIcon className="size-4" />
+                      </a>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Phone</p>
+                  </TooltipContent>
+                </Tooltip>
+              ) : null}
+              {contact.social.map((social) => (
+                <Tooltip key={social.name}>
+                  <TooltipTrigger>
+                    <Button
+                      className="size-8"
+                      variant="outline"
+                      size="icon"
+                      asChild
+                    >
+                      <a href={social.url}>
+                        <social.icon className="size-4" />
+                      </a>
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{social.name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              ))}
             </div>
           </div>
 
